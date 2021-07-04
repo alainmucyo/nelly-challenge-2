@@ -2,7 +2,7 @@ import "./album-search.css";
 import {useState} from "react";
 
 export function AlbumSearch({onSearch}) {
-    const [search, setSearch] = useState('');
+    const [search, setSearch] = useState(1);
 
     function submit(e) {
         e.preventDefault();
@@ -12,7 +12,7 @@ export function AlbumSearch({onSearch}) {
     return (
         <form className="album-search" onSubmit={event => submit(event)}>
             <input type="text" className="search-input" placeholder="Album ID ex: 1"
-                   onChange={e => setSearch(e.target.value)}/>
+                   onChange={e => setSearch(e.target.value)} value={search}/>
             <button type="submit" className="search-button" title="Click to search">
                 <svg className="search-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                      viewBox="0 0 24 24">

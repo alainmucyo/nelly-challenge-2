@@ -6,11 +6,11 @@ import {Loader} from "./components/shared/loader/loader";
 
 function App() {
     const [data, setData] = useState({albums: []});
-    const [albumId, setAlbumId] = useState("");
-    const [loading, setLoading] = useState(false);
+    const [albumId, setAlbumId] = useState(1);
+    const [loading, setLoading] = useState(true);
     useEffect(() => {
         async function fetchData() {
-            if (albumId.trim() === "")
+            if (albumId.toString().trim() === "")
                 return;
             setLoading(true);
             const res = await fetch(`https://jsonplaceholder.typicode.com/albums/${albumId}/photos`).then(res => res.json());
@@ -26,7 +26,8 @@ function App() {
     }
 
     return (<div className="App">
-            <AlbumSearch onSearch={searchAlbum}/>{!loading ? <AlbumList albums={data.albums}/> :
+            <AlbumSearch onSearch={searchAlbum}/>{!loading ?
+            <AlbumList albums={data.albums}/> :
             <Loader/>}
         </div>
     );
