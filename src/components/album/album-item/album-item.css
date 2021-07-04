@@ -1,0 +1,22 @@
+.album-item{
+    background-color: var(--color-primary-light);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: .2ms;
+}
+
+.album-image{
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    height: 21rem;
+}
+.album-title{
+    padding: .5rem 1rem .6rem 1rem ;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: var(--color-grey-dark-4);
+    /*box-shadow: var(--shadow-light);*/
+}
