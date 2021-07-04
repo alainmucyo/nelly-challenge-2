@@ -10,11 +10,11 @@ function App() {
     const [loading, setLoading] = useState(false);
     useEffect(() => {
         async function fetchData() {
-            if (albumId.trim() == "")
+            if (albumId.trim() === "")
                 return;
             setLoading(true);
             const res = await fetch(`https://jsonplaceholder.typicode.com/albums/${albumId}/photos`).then(res => res.json());
-           setLoading(false)
+            setLoading(false)
             setData({albums: res})
         }
 
@@ -25,11 +25,9 @@ function App() {
         setAlbumId(search)
     }
 
-    return (
-        <div className="App">
-            <AlbumSearch onSearch={searchAlbum}/>
-            {!loading ? <AlbumList albums={data.albums}/> :
-                <Loader/>}
+    return (<div className="App">
+            <AlbumSearch onSearch={searchAlbum}/>{!loading ? <AlbumList albums={data.albums}/> :
+            <Loader/>}
         </div>
     );
 }
