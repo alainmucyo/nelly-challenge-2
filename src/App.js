@@ -13,7 +13,7 @@ function App() {
             if (albumId.toString().trim() === "")
                 return;
             setLoading(true);
-            const res = await fetch(`https://jsonplaceholder.typicode.com/albums/${albumId}/photos`).then(res => res.json());
+            const res = await fetch(`https://alainmucyo-challenge-3.herokuapp.com/api/gallery/${albumId}`).then(res => res.json());
             setLoading(false)
             setData({albums: res})
         }
